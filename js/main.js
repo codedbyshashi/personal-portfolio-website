@@ -4,6 +4,38 @@
  */
 
 // =======================================
+// BACKGROUND EFFECTS
+// =======================================
+class BackgroundEffects {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.createFloatingParticles();
+    }
+
+    createFloatingParticles() {
+        const particlesContainer = document.getElementById('particles');
+        if (!particlesContainer) return;
+
+        const particleCount = 15;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random positioning
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            
+            particlesContainer.appendChild(particle);
+        }
+    }
+}
+
+// =======================================
 // PROJECT DATA - Enhanced
 // =======================================
 const projects = [
@@ -479,6 +511,7 @@ class Portfolio {
     initializeComponents() {
         // Initialize all managers
         new ThemeManager();
+        new BackgroundEffects();
         new ScrollManager();
         new AnimationManager();
         new ProjectManager();
