@@ -1,0 +1,23 @@
+{
+  "name": "professional-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Kota Shashidharreddy",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "start": "python3 -m http.server 3000",
+    "build": "echo 'Build complete - static files ready'",
+    "preview": "python3 -m http.server 4173"
+  },
+  "keywords": [
+    "portfolio",
+    "web-development",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "Kota Shashidharreddy",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
