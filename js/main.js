@@ -17,43 +17,43 @@ const projects = [
     },
     {
         title: "Blog Platform with Comments",
-        description: "A full-stack blogging platform with user authentication, CRUD operations, and real-time commenting system. Built with Spring Boot backend and modern frontend technologies for optimal user experience.",
+        description: "A comprehensive full-stack blogging platform featuring user authentication, rich text editor, CRUD operations for posts, and real-time commenting system. Includes admin dashboard, category management, and responsive design. Built with Spring Boot backend, MySQL database, and modern frontend technologies.",
         imageUrl: "https://images.pexels.com/photos/265667/pexels-photo-265667.jpeg?auto=compress&cs=tinysrgb&w=600",
         liveUrl: "#",
         codeUrl: "https://github.com/codedbyshashi/blog-platform",
-        technologies: ["Java", "Spring Boot", "MySQL", "JavaScript"]
-    },
-    {
-        title: "Heart Disease Prediction Tool",
-        description: "An intelligent health assessment application using machine learning algorithms to predict heart disease risk. Features data visualization, user-friendly interface, and comprehensive health analytics.",
-        imageUrl: "https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=600",
-        liveUrl: "#",
-        codeUrl: "https://github.com/codedbyshashi/heart-disease-prediction",
-        technologies: ["Python", "Machine Learning", "Flask", "Data Analysis"]
+        technologies: ["Java", "Spring Boot", "MySQL", "JavaScript", "HTML/CSS"]
     },
     {
         title: "URL Shortener Service",
-        description: "A scalable URL shortening service similar to Bitly, featuring custom short URLs, click analytics, and QR code generation. Built with modern web technologies and optimized for high performance.",
+        description: "A scalable URL shortening service similar to Bitly, featuring custom short URLs, click analytics, QR code generation, and expiration dates. Built with Node.js and Express backend, MongoDB for data storage, and Redis for caching. Includes user dashboard, link management, and detailed analytics.",
         imageUrl: "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=600",
         liveUrl: "#",
         codeUrl: "https://github.com/codedbyshashi/url-shortener",
-        technologies: ["Node.js", "Express", "MongoDB", "Redis"]
+        technologies: ["Node.js", "Express", "MongoDB", "Redis", "JavaScript"]
+    },
+    {
+        title: "Sentiment Analysis Movie Reviews",
+        description: "An intelligent movie review sentiment analysis system using Natural Language Processing and Machine Learning. Features real-time sentiment classification, emotion detection, review summarization, and interactive data visualizations. Built with Python, scikit-learn, and Flask with a modern web interface.",
+        imageUrl: "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=600",
+        liveUrl: "#",
+        codeUrl: "https://github.com/codedbyshashi/movie-sentiment-analysis",
+        technologies: ["Python", "Machine Learning", "NLP", "Flask", "scikit-learn"]
+    },
+    {
+        title: "Heart Disease Prediction Tool",
+        description: "An intelligent health assessment application using machine learning algorithms to predict heart disease risk. Features data visualization, user-friendly interface, comprehensive health analytics, and medical report generation with 95% accuracy using ensemble methods.",
+        imageUrl: "https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=600",
+        liveUrl: "#",
+        codeUrl: "https://github.com/codedbyshashi/heart-disease-prediction",
+        technologies: ["Python", "Machine Learning", "Flask", "Data Analysis", "Pandas"]
     },
     {
         title: "E-Commerce Platform",
-        description: "A comprehensive e-commerce solution with shopping cart, payment integration, inventory management, and admin dashboard. Features responsive design and seamless user experience across all devices.",
+        description: "A comprehensive e-commerce solution with shopping cart, secure payment integration, inventory management, order tracking, and admin dashboard. Features responsive design, product search, user reviews, and seamless checkout experience across all devices.",
         imageUrl: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
         liveUrl: "#",
         codeUrl: "https://github.com/codedbyshashi/ecommerce-platform",
-        technologies: ["React", "Node.js", "PostgreSQL", "Stripe API"]
-    },
-    {
-        title: "Task Management Dashboard",
-        description: "A collaborative project management tool with real-time updates, team collaboration features, and advanced task tracking. Built with modern frameworks and optimized for productivity.",
-        imageUrl: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
-        liveUrl: "#",
-        codeUrl: "https://github.com/codedbyshashi/task-management",
-        technologies: ["Vue.js", "Firebase", "Vuetify", "PWA"]
+        technologies: ["React", "Node.js", "PostgreSQL", "Stripe API", "JWT"]
     }
 ];
 
