@@ -1,1126 +1,942 @@
 /*
-  This is the beginning of our stylesheet. We start by defining a global set of
-  design tokens (variables). This establishes a consistent design system that will
-  govern the entire look and feel of our site, making it easy to update and theme.
+  Professional Portfolio - Enhanced Design System
+  A modern, sophisticated portfolio with advanced visual effects and professional aesthetics
 */
 
 :root {
-  /*
-    The :root pseudo-class selects the <html> element, making these variables
-    globally available throughout the document. We are defining our 'light'
-    theme values here as the default theme.
-  */
-
   /* ========================================
-     COLOR PALETTE - LIGHT THEME
+     PROFESSIONAL COLOR PALETTE - LIGHT THEME
      ======================================== */
-  /* A vibrant, accessible blue for primary interactive elements like links and buttons. */
-  --primary-color: #0069d9;
-  /* A muted gray for secondary text or less important elements. */
-  --secondary-color: #6c757d;
-  /* A very light gray for the main page background, which is softer on the eyes than pure white. */
-  --background-color: #ffffff;
-  /* White for surfaces that should stand out from the background, like cards, headers, and forms. */
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #64748b;
+  --accent-color: #06b6d4;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  
+  /* Sophisticated Background System */
+  --background-color: #fafafa;
+  --background-gradient: linear-gradient(135deg, #fafafa 0%, #f1f5f9 100%);
   --surface-color: #ffffff;
-  /* A dark, highly readable color for main text content. We use a dark gray instead of pure black for better readability. */
-  --text-color: #333333;
-  /* A slightly lighter text color for subtitles, placeholders, or less emphasized text. */
-  --text-color-light: #495057;
-  /* A subtle border color for elements like cards and form inputs. */
-  --border-color: #dee2e6;
-  /* A subtle shadow color to give elements depth. */
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --surface-elevated: #ffffff;
+  --surface-hover: #f8fafc;
+  
+  /* Advanced Text Colors */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  --text-inverse: #ffffff;
+  
+  /* Professional Border & Shadow System */
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.15);
 
-  /* ========================================
-     TYPOGRAPHY
-     ======================================== */
-  /* A clean, modern, and system-agnostic sans-serif font stack. The browser will try each font from left to right. */
-  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  /* The base font size for the document. Using 'rem' units allows for better accessibility and scalability. */
-  --font-size-base: 1rem; /* Typically defaults to 16px */
-  /* Base line height for improved readability. It's unitless, meaning it's a multiplier of the font size. */
-  --line-height-base: 1.5;
+  /* Typography System */
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-weight-light: 300;
   --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
 
-  /* ========================================
-     SPACING & LAYOUT
-     ======================================== */
-  /* A base unit for consistent spacing (margins, padding). We can use multiples of this unit. */
-  --spacing-unit: 1rem;
-  /* Max width for our .container class to ensure content is readable on wide screens. */
-  --container-width: 1140px;
-  /* A consistent border-radius for rounded corners on buttons, cards, and inputs. */
-  --border-radius: 0.25rem;
+  /* Spacing System (8px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
 
-  /*
-  ========================================
-  CSS RESET
-  ========================================
-  This reset removes inconsistent browser default styles, providing a clean
-  and predictable baseline to build our own design upon.
-*/
+  /* Layout */
+  --container-width: 1200px;
+  --border-radius-sm: 0.375rem;
+  --border-radius: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
 
-/*
-  1. Use a more intuitive box-sizing model on all elements.
-     This makes layout work more predictable, as padding and border
-     are included in the element's total width and height.
-*/
+  /* Animation System */
+  --transition-fast: 0.15s ease-out;
+  --transition-normal: 0.3s ease-out;
+  --transition-slow: 0.5s ease-out;
+  --animation-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Dark Theme */
+html[data-theme='dark'] {
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --secondary-color: #94a3b8;
+  --accent-color: #22d3ee;
+  
+  --background-color: #0f172a;
+  --background-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --surface-color: #1e293b;
+  --surface-elevated: #334155;
+  --surface-hover: #475569;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #64748b;
+  --text-inverse: #0f172a;
+  
+  --border-color: #334155;
+  --border-hover: #475569;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* ========================================
+   MODERN CSS RESET
+   ======================================== */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/*
-  2. Remove default margin and padding from all elements.
-     This gives us full control over spacing.
-*/
 * {
   margin: 0;
   padding: 0;
 }
 
-/*
-  3. Allow percentage-based heights in the application.
-*/
-html,
-body {
-  height: 100%;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
-/*
-  4. Create a root stacking context. This is a modern best practice to prevent
-     z-index issues with elements like modals or dropdowns.
-*/
-#root, #__next {
-    isolation: isolate;
-}
-/*
-  ========================================
-  BASE STYLES
-  ========================================
-  These are the foundational styles for the entire site. We apply them
-  to the body, and they will be inherited by most other elements.
-*/
-
 body {
-  /* 
-    Set the default font family for the entire page using our variable.
-    This "font stack" provides modern, readable, and system-agnostic fonts.
-  */
   font-family: var(--font-family-base);
-
-  /*
-    Set the base font size. Using 'rem' units makes our site more accessible,
-    as it respects the user's default font size settings in their browser.
-  */
   font-size: var(--font-size-base);
-
-  /*
-    Set a comfortable line height for better readability. A unitless value
-    acts as a multiplier of the font-size, which scales gracefully.
-  */
-  line-height: var(--line-height-base);
-
-  /*
-    Set the default text color for all content. We use our dark gray variable
-    for a softer, more professional look than pure black.
-  */
-  color: var(--text-color);
-
-  /*
-    Set the main background color for the page. This light gray is less harsh
-    on the eyes than pure white.
-  */
-  background-color: var(--background-color);
-  /* 
-    NEW: Tell the browser to animate any change to the background-color and color
-    properties. The animation will take 0.3 seconds and follow an 'ease-in-out'
-    timing function, which provides a natural-feeling acceleration and deceleration.
-  */
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  background: var(--background-gradient);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: all var(--transition-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-/*
-  ========================================
-  HEADER & NAVIGATION
-  ========================================
-  These styles control the layout and appearance of the main site header
-  and the primary navigation menu within it.
-*/
+
+/* ========================================
+   ENHANCED HEADER & NAVIGATION
+   ======================================== */
 header {
-  /* Use our --surface-color to make the header's background distinct from the page body. */
-  background-color: var(--surface-color);
-  
-  /* Add a subtle shadow to lift the header off the page, giving it depth. */
-  box-shadow: 0 2px 4px var(--shadow-color);
-  
-  /* Give the header some vertical padding so content isn't flush against the top/bottom edges. */
-  padding: var(--spacing-unit) 0;
-  
-  /* 
-    This is the magic for a "sticky" header. 
-    - 'position: sticky' makes the element behave like a normal element until it hits 
-      the top of the viewport during a scroll.
-    - 'top: 0' tells the browser where to "stick" it (0px from the top).
-    - 'z-index' ensures the header stays on top of other content when scrolling.
-  */
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
-  
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  transition: all var(--transition-normal);
 }
 
-/* 
-  Target the .container inside the header to apply our layout rules.
-  This is a good practice to ensure our header content aligns with the
-  rest of the page content.
-*/
+html[data-theme='dark'] header {
+  background: rgba(30, 41, 59, 0.95);
+}
+
+header.scrolled {
+  box-shadow: var(--shadow-lg);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+html[data-theme='dark'] header.scrolled {
+  background: rgba(30, 41, 59, 0.98);
+}
+
 header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* We also apply our max-width and centering here. */
   max-width: var(--container-width);
-  margin: 0 auto; /* Centers the container horizontally */
-  padding: 0 var(--spacing-unit); /* Adds padding on the sides for smaller screens */
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6);
+  height: 80px;
 }
 
-/*
-  Now we style the navigation itself. We target the <ul> directly to
-  turn it into a flex container as well.
-*/
-header nav ul {
-  /* This turns the list itself into a flex container, arranging its children (the <li>) in a row. */
-  display: flex;
-  
-  /* This creates a consistent space between each of the navigation links. */
-  gap: calc(var(--spacing-unit) * 2);
-
-  /* This removes the default bullet points from the unordered list. */
-  list-style: none;
-}
-
-/*
-  Finally, we style the navigation links themselves.
-*/
-header nav ul li a {
-  /* Remove the default underline from the anchor tags. */
-  text-decoration: none;
-  
-  /* Use our theme's text color, overriding the browser's default blue. */
-  color: var(--text-color);
-  
-  /* Make the font bold to signify importance. */
+.logo {
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  
-  /* Add padding to increase the clickable area, making it more user-friendly. */
-  padding: 0.5rem;
-  /* NEW: Animate the color change of the navigation links. */
-  transition: color 0.3s ease-in-out;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all var(--transition-fast);
 }
-/*
-  NEW: Define the style for the hover state.
-  When the user hovers over a navigation link, its text color will
-  smoothly change to our primary brand color.
-*/
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+header nav ul {
+  display: flex;
+  gap: var(--space-8);
+  list-style: none;
+  align-items: center;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--border-radius);
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
 header nav ul li a:hover {
   color: var(--primary-color);
+  background: var(--surface-hover);
 }
 
-/* ... after your 'header nav ul li a' styles ... */
+header nav ul li a.active {
+  color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.1);
+}
 
-/*
-  ========================================
-  MENU TOGGLE (HAMBURGER)
-  ========================================
-  Styles for the mobile navigation toggle button.
-*/
-
+/* Mobile Menu Toggle */
 .menu-toggle {
-  /* Hide the hamburger button by default on larger (desktop) screens. */
   display: none;
-
-  /* Basic button styling */
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0; /* Remove default padding */
-  
-  /* Use flexbox to center the bars and manage their stacking */
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 30px;
   height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .menu-toggle .bar {
-  /* Style each of the three bars */
-  display: block; /* Ensure spans behave like block elements */
+  display: block;
   width: 100%;
   height: 3px;
-  background-color: var(--text-color);
+  background-color: var(--text-primary);
   border-radius: 3px;
-  
-  /* We will add a transition here for a future animation when the menu is toggled. */
-  transition: all 0.3s ease-in-out;
+  transition: all var(--transition-normal);
 }
-/*
-  ========================================
-  THEME SWITCHER
-  ========================================
-  Styles for the light/dark mode toggle switch.
-*/
 
+/* Theme Switcher */
 .theme-switcher {
-  /* Aligns the switcher nicely with the navigation links */
   display: flex;
   align-items: center;
+  margin-left: var(--space-4);
 }
 
 .switch-label {
-  /* This makes the label the positioning container for the elements inside. */
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 26px;
+  width: 60px;
+  height: 32px;
   cursor: pointer;
 }
 
 .switch-checkbox {
-  /* 
-    This is a common accessibility-friendly technique to hide an element visually
-    but keep it available to screen readers and the browser's form submission logic.
-    We hide it because we're creating our own custom visual representation.
-  */
   opacity: 0;
   width: 0;
   height: 0;
 }
 
 .slider {
-  /* This is the track of our switch. */
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc; /* A default gray for the track */
-  border-radius: 26px; /* Makes the track pill-shaped */
-  transition: background-color 0.4s;
+  background: var(--border-color);
+  border-radius: 32px;
+  transition: all var(--transition-normal);
 }
 
 .slider::before {
-  /* This pseudo-element is the "thumb" or the movable part of the switch. */
   content: "";
   position: absolute;
-  height: 20px;
-  width: 20px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  border-radius: 50%; /* Makes the thumb a perfect circle */
-  transition: transform 0.4s;
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 4px;
+  background: white;
+  border-radius: 50%;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
 }
 
-/* 
-  This is the magic! The :checked pseudo-class targets the input WHEN it is checked.
-  The adjacent sibling combinator (+) selects the .slider that immediately follows it.
-*/
 .switch-checkbox:checked + .slider {
-  /* When checked, we change the background of the track to our primary color. */
-  background-color: var(--primary-color);
+  background: var(--primary-color);
 }
 
 .switch-checkbox:checked + .slider::before {
-  /* When checked, we move the thumb to the right using a transform. */
-  transform: translateX(24px);
+  transform: translateX(28px);
 }
-/*
-  ========================================
-  HERO SECTION
-  ========================================
-  Styles for the main introductory "hero" block of the page.
-*/
 
+/* ========================================
+   HERO SECTION - ENHANCED
+   ======================================== */
 #hero {
-  /* 
-    To make the hero section feel significant, we give it a minimum height.
-    '90vh' means 90% of the viewport's height. This ensures it fills most
-    of the screen on any device, creating an immersive first impression.
-  */
-  min-height: 90vh;
-  
-  /* 
-    We use Flexbox again, this time for vertical centering.
-    - 'display: flex' turns #hero into a flex container.
-    - 'align-items: center' vertically centers its child (the .container) in the middle.
-    - 'justify-content: center' horizontally centers the child.
-  */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--background-gradient);
+}
 
-  /* We add some padding for spacing on smaller screens where the height might be less. */
-  padding: calc(var(--spacing-unit) * 2) 0;
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 #hero .container {
-  /* 
-    This centers the text *inside* our container. Flexbox centered the container
-    itself, and text-align centers the content within it.
-  */
   text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-greeting {
+  font-size: var(--font-size-lg);
+  color: var(--primary-color);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-4);
+  animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 #hero h1 {
-  /* Make the main heading large and impactful. */
-  font-size: 3.5rem; /* ~56px */
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-unit); /* Add space below the heading */
+  margin-bottom: var(--space-6);
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 1s ease-out 0.4s both;
 }
 
-#hero .hero-subtitle {
-  /* Style the subtitle to be prominent but secondary to the main heading. */
-  font-size: 1.5rem; /* ~24px */
-  margin-bottom: calc(var(--spacing-unit) * 2); /* Add more space below the subtitle */
-  color: var(--text-color-light); /* Use our lighter text color variable */
+.hero-subtitle {
+  font-size: var(--font-size-2xl);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-8);
+  font-weight: var(--font-weight-medium);
+  animation: fadeInUp 1s ease-out 0.6s both;
 }
 
-#hero p:last-of-type {
-  /*
-    Constrain the width of the final introductory paragraph to ensure it
-    remains easily readable on very wide screens.
-  */
+.hero-description {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
   max-width: 600px;
-  /* margin: 0 auto; will center the paragraph block if its max-width is met. */
-  margin: 0 auto;
+  margin: 0 auto var(--space-10);
+  line-height: var(--line-height-relaxed);
+  animation: fadeInUp 1s ease-out 0.8s both;
 }
-/*
-  ========================================
-  ABOUT SECTION
-  ========================================
-  Styles for the "About Me" section, featuring a two-column layout.
-*/
 
+.hero-cta {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease-out 1s both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border-radius: var(--border-radius-lg);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-color);
+  color: var(--text-inverse);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   ABOUT SECTION - ENHANCED
+   ======================================== */
 #about {
-  /* Add significant vertical padding to give the section breathing room. */
-  padding: calc(var(--spacing-unit) * 4) 0;
+  padding: var(--space-24) 0;
+  background: var(--surface-color);
+  position: relative;
 }
 
-#about h2 {
-  /* Center the section title and give it space from the content below. */
+#about .container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.section-header {
   text-align: center;
-  margin-bottom: calc(var(--spacing-unit) * 3);
+  margin-bottom: var(--space-16);
+}
+
+.section-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: var(--line-height-relaxed);
 }
 
 .about-content {
-  /* This is where the magic happens! We create our two-column layout here. */
-  display: flex;
-  
-  /* Vertically align the image and the text block to their centers. */
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-16);
   align-items: center;
-  
-  /* Create a sizable gap between the image column and the text column. */
-  gap: calc(var(--spacing-unit) * 4);
 }
 
 .about-image {
-  /* Define the width for the image column. flex: 1; would make it share space equally. */
-  /* Here, we give it a fixed proportion of the layout. */
-  flex: 1; 
-  max-width: 300px; /* Optional: cap the max size of the image container */
+  position: relative;
+}
+
+.about-image::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: 20px;
+  bottom: 20px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: var(--border-radius-xl);
+  z-index: -1;
 }
 
 .about-image img {
-  /* Make the image responsive, ensuring it never overflows its container. */
-  max-width: 100%;
-  
-  /* This maintains the image's aspect ratio. */
-  height: auto;
-  
-  /* A popular and modern design choice: make the profile picture a circle. */
-  border-radius: 50%;
-  
-  /* Add a subtle shadow to make the image "pop" from the background. */
-  box-shadow: 0 4px 15px var(--shadow-color);
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-xl);
+  transition: all var(--transition-normal);
+}
+
+.about-image img:hover {
+  transform: scale(1.02);
 }
 
 .about-text {
-  /* Let the text column take up more space. 'flex: 2;' makes it twice as wide as the image column. */
-  flex: 2;
+  space-y: var(--space-6);
 }
 
 .about-text p {
-  /* Add space between the paragraphs for better readability. */
-  margin-bottom: var(--spacing-unit);
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-6);
 }
 
-/* Remove the margin from the last paragraph to avoid extra space at the bottom. */
-.about-text p:last-child {
-  margin-bottom: 0;
-}
-/*
-  ========================================
-  PROJECTS SECTION
-  ========================================
-  Styles for the project showcase, including the individual project cards.
-*/
-
-#projects {
-  /* Give the projects section ample breathing room from the 'About' section. */
-  padding: calc(var(--spacing-unit) * 4) 0;
-  /* Use our main background color, as the cards will have the surface color. */
-  background-color: var(--background-color);
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-8);
 }
 
-#projects h2 {
-  /* Center the section title and give it space from the cards below. */
+.skill-item {
+  background: var(--surface-elevated);
+  padding: var(--space-4);
+  border-radius: var(--border-radius-lg);
   text-align: center;
-  margin-bottom: calc(var(--spacing-unit) * 3);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-normal);
+}
+
+.skill-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.skill-item .skill-icon {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-2);
+}
+
+.skill-item .skill-name {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+/* ========================================
+   PROJECTS SECTION - ENHANCED
+   ======================================== */
+#projects {
+  padding: var(--space-24) 0;
+  background: var(--background-gradient);
+}
+
+#projects .container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
 }
 
 .projects-container {
-  /* 
-    This is the magic declaration that turns this container into a grid.
-    All direct children of this element (our .project-card divs) now
-    become grid items.
-  */
   display: grid;
-
-  /*
-    This property defines the columns of our grid. It's the most important
-    part of our grid layout. Let's break it down:
-    - 'repeat(3, 1fr)': This is a powerful and modern way to define columns.
-    - 'repeat()': A function that saves us from writing '1fr 1fr 1fr'.
-    - '3': We want three columns.
-    - '1fr': The 'fr' or 'fractional' unit. This tells the browser to divide the 
-      available space into equal fractions. So, '1fr' means each of our 3 columns
-      will take up 1 equal fraction of the container's width, creating a perfectly
-      responsive three-column layout.
-  */
-  grid-template-columns: repeat(3, 1fr);
-
-  /*
-    The 'gap' property is the modern way to create space between grid items.
-    This one property elegantly handles both the space between rows and columns,
-    ensuring consistent spacing throughout our gallery. We use our existing
-    spacing variable for consistency.
-  */
-  gap: calc(var(--spacing-unit) * 2);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-8);
 }
 
-/* === The Project Card Component === */
-
-/* === The Project Card Component === */
-
 .project-card {
-  /* Use the lighter --surface-color so the card stands out from the page background. */
-  background-color: var(--surface-color);
-  
-  /* Add our consistent rounded corners and a subtle border. */
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-  
-  /* 
-    This is the key to the card's "lifted" feel.
-    box-shadow: [horizontal-offset] [vertical-offset] [blur-radius] [color];
-    We use a small vertical offset, a soft blur, and our semi-transparent shadow color.
-  */
-  box-shadow: 0 4px 8px var(--shadow-color);
-
-  /* 
-    Crucial for design: This clips anything that tries to "spill out" of the card.
-    This ensures that the sharp corners of our <img> are clipped to match the
-    card's rounded corners.
-  */
+  background: var(--surface-color);
+  border-radius: var(--border-radius-xl);
   overflow: hidden;
-  
-  /* 
-    NEW: Animate the changes to the card's surface. Note we can group properties
-    with the same duration and timing function into a single declaration.
-  */
-  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-color);
+}
+
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
 }
 
 .project-image {
-  /* Ensures the image is responsive and fills the width of the card. */
   width: 100%;
-  
-  /* 'display: block' removes any potential extra space below the image. */
-  display: block;
+  height: 100%;
+  object-fit: cover;
+  transition: all var(--transition-slow);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(6, 182, 212, 0.8));
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
 }
 
 .project-info {
-  /* Use our spacing variable for consistent padding inside the card. */
-  padding: calc(var(--spacing-unit) * 1.5);
+  padding: var(--space-6);
 }
 
 .project-info h3 {
-  /* Add space below the card's title. */
-  margin-bottom: var(--spacing-unit);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.project-info p {
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-6);
 }
 
 .project-links {
-  /* We add padding to the link area as well. */
-  padding: 0 calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 1.5);
   display: flex;
-  gap: var(--spacing-unit);
+  gap: var(--space-3);
 }
 
-.project-links a {
-  /* Style the links to look like buttons for a clear call to action. */
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  font-weight: var(--font-weight-bold);
-  border-radius: var(--border-radius);
-  
-  /* Style for the primary link (e.g., Live Demo) */
-  background-color: var(--primary-color);
-  color: var(--surface-color);
-   /* NEW: Animate the button's colors. */
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-/*
-  NEW: Add a hover state for the primary project link/button.
-  The 'filter' property is a modern and flexible way to create hover effects.
-  brightness(90%) makes the element 10% darker, regardless of its original color.
-  This is often better than picking a slightly darker hex code by hand.
-  The transition you already added to the 'a' element will make this smooth.
-*/
-.project-links a:hover {
-  filter: brightness(90%);
+.project-links .btn {
+  flex: 1;
+  justify-content: center;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
 }
 
-/* A secondary style for the 'View Code' link to create visual hierarchy. */
-.project-links a:last-child {
-  background-color: transparent;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-
-   /* 
-    NEW: Also add transitions here for the secondary button style.
-    This ensures that hover effects we add later will also be smooth.
-  */
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-}
-/*
-  NEW: Define a different hover state for the secondary button.
-  A common and effective pattern for "ghost" buttons like this is to
-  fill them with color on hover. This provides a very clear visual feedback.
-  We also reset the filter to 'none' to ensure the brightness effect doesn't apply here.
-*/
-.project-links a:last-child:hover {
-  background-color: var(--primary-color);
-  color: var(--surface-color);
-  filter: none; /* Reset filter for this specific hover state */
-}
-/*
-  ========================================
-  CONTACT SECTION
-  ========================================
-  Styles for the contact form, ensuring it's visually consistent
-  with the rest of the site and provides a great user experience.
-*/
-
+/* ========================================
+   CONTACT SECTION - ENHANCED
+   ======================================== */
 #contact {
-  /* Add padding to create vertical space around the section. */
-  padding: calc(var(--spacing-unit) * 4) 0;
-  /* In your style.css, inside the CONTACT SECTION */
+  padding: var(--space-24) 0;
+  background: var(--surface-color);
+  position: relative;
+}
 
-/*
-  Form Status Messages
-  This styles the container for success and error messages.
-*/
+#contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 70% 30%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+#contact .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  position: relative;
+  z-index: 2;
+}
+
+#contact form {
+  background: var(--surface-elevated);
+  padding: var(--space-10);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+.form-group {
+  margin-bottom: var(--space-6);
+}
+
+.form-group label {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--space-4);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background: var(--surface-color);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  transition: all var(--transition-normal);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
 #form-status {
-  /* Common styles for both success and error messages */
-  padding: 0.8rem 1rem;
-  margin-bottom: 1rem;
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
   border-radius: var(--border-radius);
   text-align: center;
   font-weight: var(--font-weight-medium);
-  
-  /* 
-    IMPORTANT: Hide the container by default.
-    We will use JavaScript to make it visible.
-  */
   display: none;
-  
-  /* 
-    Add a smooth transition for opacity and transform.
-    This will make the message gracefully fade and slide into view.
-  */
   opacity: 0;
   transform: translateY(-10px);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: all var(--transition-normal);
 }
 
-/* 
-  Success State Styling
-  The `.success` class will be added via JavaScript on a successful submission.
-*/
 #form-status.success {
-  display: block; /* Make the element visible */
-  opacity: 1; /* Fade it in */
-  transform: translateY(0); /* Slide it down to its final position */
-  background-color: #d1e7dd; /* A pleasant, light green */
-  color: #0f5132; /* A dark green for good contrast */
-  border: 1px solid #badbcc;
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+  border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
-/* 
-  Error State Styling
-  The `.error` class will be added via JavaScript if the submission fails.
-*/
 #form-status.error {
-  display: block; /* Make the element visible */
-  opacity: 1; /* Fade it in */
-  transform: translateY(0); /* Slide it down to its final position */
-  background-color: #f8d7da; /* A standard light red for errors */
-  color: #842029; /* A dark red for good contrast */
-  border: 1px solid #f5c2c7;
-}
-
-/* 
-  Dark Theme Adjustments for Status Messages
-  Ensure the messages have appropriate colors in dark mode.
-  This is a great example of the power of your theme variables!
-*/
-html[data-theme='dark'] #form-status.success {
-  background-color: #0f5132; /* Darker green background */
-  color: #d1e7dd; /* Lighter green text */
-  border-color: #146c43;
-}
-
-html[data-theme='dark'] #form-status.error {
-  background-color: #842029; /* Darker red background */
-  color: #f8d7da; /* Lighter red text */
-  border-color: #9b2a34;
-}
-}
-
-#contact .container > h2,
-#contact .container > p {
-  /* Center the section's introductory text. */
-  text-align: center;
-}
-
-#contact .container > p {
-  /* Add significant space between the intro text and the form itself. */
-  margin-bottom: calc(var(--spacing-unit) * 3);
-  /* Constrain the intro text width for readability on large screens. */
-  max-width: 600px;
-  /* Center the constrained paragraph block. */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* === Form Element Styling === */
-
-#contact form {
-  /* Give the form a max-width to prevent it from becoming too wide on desktops. */
-  max-width: 700px;
-  /* Center the form within the container. */
-  margin: 0 auto;
-}
-
-#contact label {
-  /* Display labels as blocks to place them on their own line above the input. */
   display: block;
-  /* Make labels bold to stand out. */
-  font-weight: var(--font-weight-bold);
-  /* Add a little space between the label and its input field. */
-  margin-bottom: 0.5rem;
+  opacity: 1;
+  transform: translateY(0);
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error-color);
+  border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
-#contact input[type="text"],
-#contact input[type="email"],
-#contact textarea {
-  /* Make all input fields take up the full width of the form container. */
-  width: 100%;
-  /* Use our variables for consistent padding. */
-  padding: calc(var(--spacing-unit) * 0.75);
-  /* Add space between each form field. */
-  margin-bottom: calc(var(--spacing-unit) * 1.5);
-  
-  /* Apply our consistent border style and color. */
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  
-  /* Use our theme's surface color for the background. */
-  background-color: var(--surface-color);
-  
-  /* Form elements do not always inherit font properties, so we set them explicitly. */
-  font-family: inherit;
-  font-size: inherit;
-  color: var(--text-color);
-  
-   /* 
-    MODIFIED: We already had a transition here for the :focus state.
-    We just need to add background-color and color to the list of
-    properties to transition.
-  */
-  transition: border-color 0.2s ease-in-out, 
-              box-shadow 0.2s ease-in-out, 
-              background-color 0.3s ease-in-out, 
-              color 0.3s ease-in-out;
-}
-
-/* A useful tweak for the textarea: allow vertical resizing but not horizontal, which can break layouts. */
-#contact textarea {
-  resize: vertical;
-  min-height: 150px;
-}
-
-/*
-  The :focus pseudo-class is CRUCIAL for accessibility and user experience.
-  It provides a clear visual indicator of which field the user is currently editing.
-*/
-#contact input[type="text"]:focus,
-#contact input[type="email"]:focus,
-#contact textarea:focus {
-  /* Remove the browser's default, often ugly, focus outline. */
-  outline: none;
-  /* Change the border color to our primary brand color. */
-  border-color: var(--primary-color);
-  /* Add a subtle "glow" effect (box-shadow) to make the active field pop. */
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
-}
-
-#contact button[type="submit"] {
-  /* Make the button a block element to fill the form's width. */
-  display: block;
-  width: 100%;
-  
-  /* Use our spacing variables for consistent padding. */
-  padding: var(--spacing-unit);
-  
-  /* Remove the default browser border. */
-  border: none;
-  border-radius: var(--border-radius);
-  
-  /* Style it as a primary action button, just like in our project cards. */
-  background-color: var(--primary-color);
-  color: var(--surface-color);
-  
-  /* Increase font size and weight for emphasis. */
-  font-size: 1.1rem;
-  font-weight: var(--font-weight-bold);
-  
-  /* Change the cursor to a pointer on hover to indicate it's clickable. */
-  cursor: pointer;
-  
-  /* Add a smooth transition for the hover effect. */
-  transition: filter 0.2s ease-in-out;
-}
-
-#contact button[type="submit"]:hover {
-  /* The filter property is a modern way to change appearance. brightness(90%) slightly darkens the element. */
-  filter: brightness(90%);
-}
-/*
-  ========================================
-  FOOTER SECTION
-  ========================================
-  Styles for the final site footer, ensuring it's a clean and
-  professional closing for the page.
-*/
-
+/* ========================================
+   FOOTER - ENHANCED
+   ======================================== */
 footer {
-  /* Use the surface color for the footer background, similar to the header. */
-  background-color: var(--surface-color);
-  
-  /* Use our spacing variable for consistent vertical padding. */
-  padding: calc(var(--spacing-unit) * 2) 0;
-  
-  /* Add a subtle top border to visually separate the footer from the content above. */
+  background: var(--surface-color);
   border-top: 1px solid var(--border-color);
-  
-  /* Ensure the text color is set correctly, especially for the copyright notice. */
-  color: var(--text-color-light);
-  
-  /* Center the text within the footer by default. This will apply to the <p> tag. */
-  text-align: center;
-    /* NEW: Animate background, border, and text color changes. */
-  transition: background-color 0.3s ease-in-out, border-top-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  padding: var(--space-16) 0 var(--space-8);
 }
 
-/* 
-  We target the .container inside the footer to apply our Flexbox layout.
-  This ensures our footer content aligns with the main content of the page.
-*/
 footer .container {
-  display: flex;
-  
-  /*
-    This powerful property distributes space between flex items.
-    'space-between' pushes the first item (the <p>) to the start (left)
-    and the last item (the <ul>) to the end (right).
-  */
-  justify-content: space-between;
-  
-  /*
-    This property aligns items along the cross-axis (vertically). 'center'
-    ensures the copyright text and the social media links are perfectly
-    aligned on their horizontal midline.
-  */
-  align-items: center;
-
-  /* We'll also apply the standard container behavior here. */
   max-width: var(--container-width);
-  margin: 0 auto; /* Centers the container horizontally */
-  padding: 0 var(--spacing-unit); /* Adds padding on the sides for smaller screens */
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* 
-  Now we style the list of social media links.
-*/
+footer p {
+  color: var(--text-secondary);
+}
+
 footer ul {
-  /* This is a great example of NESTED FLEXBOX. We make the <ul> a flex container
-     as well, to arrange its children (the <li> items) in a row. */
   display: flex;
-  
-  /* The gap property adds a consistent space between each of the social media links. */
-  gap: var(--spacing-unit);
-  
-  /* This is crucial to remove the default bullet points from the list. */
+  gap: var(--space-6);
   list-style: none;
 }
 
-/*
-  Finally, we style the social media links themselves.
-*/
 footer ul li a {
-  /* Remove the default underline from links. */
+  color: var(--text-secondary);
   text-decoration: none;
-  
-  /* Use our theme's text color. */
-  color: var(--text-color-light);
-  
-  /* Add a smooth transition for the hover effect. */
-  transition: color 0.2s ease-in-out;
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-fast);
+  padding: var(--space-2);
+  border-radius: var(--border-radius);
 }
 
-/*
-  A hover effect provides important visual feedback to the user,
-  letting them know an element is interactive.
-*/
 footer ul li a:hover {
-  /* Change the link color to our primary brand color on hover. */
   color: var(--primary-color);
+  background: var(--surface-hover);
 }
 
-
-
+/* ========================================
+   SCROLL ANIMATIONS
+   ======================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
 }
-/* 
-   NEW CODE STARTS HERE:
-   Define the color variables for the Dark Theme.
-   This entire block of rules will only apply when the <html> element
-   has the attribute data-theme="dark".
-*/
-html[data-theme='dark'] {
-  /* =======================================
-     COLOR PALETTE - DARK THEME
-     ======================================== */
-  
-  /* The primary color can often stay the same, or you might want a slightly less saturated version. We'll keep it for now. */
-  --primary-color: #007bff;
-  
-  /* For secondary elements, a lighter gray works well on a dark background. */
-  --secondary-color: #adb5bd;
 
-  /* The main page background. A very dark gray is often preferred over pure black as it's less harsh on the eyes. */
-  --background-color: #121212;
-  
-  /* The color for "surfaces" like cards and headers. This should be slightly lighter than the main background to create separation. */
-  --surface-color: #1e1e1e;
-  
-  /* The main text color. We use a light, off-white for readability, avoiding pure white which can cause eye strain. */
-  --text-color: #e9ecef;
-  
-  /* A slightly dimmer text color for subtitles or less important information. */
-  --text-color-light: #ced4da;
-  
-  /* Borders should be subtle. A slightly lighter gray than the surface color works well. */
-  --border-color: #343a40;
-  
-  /* Shadows are tricky on dark backgrounds. A common technique is to use a very light, almost invisible white shadow to simulate depth. */
-  --shadow-color: rgba(255, 255, 255, 0.05);
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-/*
-  ========================================
-  RESPONSIVE STYLES - MEDIA QUERIES
-  ========================================
-*/
 
-/* 
-  Breakpoint 1: Tablet Devices (up to 768px)
-*/
-@media (max-width: 768px) {
-  /* 
-    Inside this block, we add rules that will ONLY apply when the viewport
-    is 768px wide or less. These rules override the default desktop styles.
-  */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease-out;
+}
 
-  /* === Typography Adjustments === */
-  /* Reduce the size of the main hero heading to prevent it from being overwhelming on smaller screens. */
-  #hero h1 {
-    font-size: 2.8rem; /* Down from 3.5rem */
-  }
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
 
-  /* Also reduce the size of the hero subtitle for better balance. */
-  #hero .hero-subtitle {
-    font-size: 1.25rem; /* Down from 1.5rem */
-  }
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease-out;
+}
 
-  /* === Layout Adjustments === */
-  
-  /* 
-    The 'About Me' section: On tablets, the side-by-side layout can feel
-    cramped. Stacking the image and text vertically creates a better
-    reading flow on a narrower screen.
-  */
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1024px) {
   .about-content {
-    /* Change the flex-direction from the default 'row' to 'column'. */
-    flex-direction: column;
-    
-    /* Increase the gap to provide vertical space between the stacked items. */
-    gap: calc(var(--spacing-unit) * 3);
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    text-align: center;
   }
-
-  /* Ensure the about image doesn't look too small when stacked. */
+  
   .about-image {
-    max-width: 250px;
-    margin: 0 auto; /* Center the image container */
+    max-width: 400px;
+    margin: 0 auto;
   }
+}
 
-  /* 
-    The 'Projects' section grid: We switch from a 3-column grid to a 2-column grid.
-    This gives each project card more horizontal space, making them larger,
-    more prominent, and easier to tap on a touch device.
-  */
-  .projects-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-   /* 
-    NEW: Hide the traditional navigation menu list.
-    The `!important` flag is sometimes used to ensure an override, but since
-    our media query is at the end of the file, it should have enough specificity.
-    We will try without it first as that is best practice.
-  */
+@media (max-width: 768px) {
   header nav {
-    display: none; 
+    display: none;
   }
-
-  /*
-    NEW: Show the menu-toggle button. We change its display property
-    from 'none' to 'flex' (as we defined in its base styles).
-  */
+  
   .menu-toggle {
     display: flex;
   }
-}
-/* 
-  NEW CODE STARTS HERE:
-  ========================================
-  Breakpoint 2: Mobile Devices
-  This media query targets screen sizes up to 480px wide. This is a standard
-  breakpoint for most mobile phones in portrait orientation. The rules inside
-  this block will override any conflicting rules from the tablet media query
-  above, allowing for more specific mobile-first adjustments.
-*/
-/* Find this block at the very end of your style.css file */
-@media (max-width: 480px) {
-  /*
-    These rules will ONLY apply on screens 480px wide or narrower.
-    They will override any conflicting rules from the desktop or tablet styles.
-  */
-
-  /* === Layout Adjustments === */
   
-  /* 
-    The most critical mobile adjustment: switch the project grid to a single column.
-    This ensures each project card has the full width of the screen, making it
-    large, readable, and easy to tap. We are overriding the 'repeat(2, 1fr)'
-    from our tablet media query.
-  */
-  .projects-container {
-    grid-template-columns: 1fr; /* Or repeat(1, 1fr) */
-  }
-
-  /*
-    On mobile, the side-by-side header layout can feel cramped.
-    We can stack the logo/nav and the theme switcher vertically.
-    Let's also add some space between them.
-  */
-  header .container {
-    flex-direction: column;
-    gap: var(--spacing-unit);
-  }
-
-  /* === Typography Adjustments === */
-  
-  /* 
-    Further reduce the hero heading size for the smallest screens to
-    prevent it from taking up too much vertical space.
-  */
   #hero h1 {
-    font-size: 2.2rem; /* Down from 2.8rem on tablet */
+    font-size: var(--font-size-4xl);
   }
-
-  /* Reduce the hero subtitle as well. */
-  #hero .hero-subtitle {
-    font-size: 1.1rem; /* Down from 1.25rem on tablet */
-  }
-
-  /* === Spacing Adjustments === */
   
-  /*
-    On mobile, vertical space is precious. We can reduce the large top/bottom
-    padding on our main content sections to show more content "above the fold".
-  */
+  .hero-subtitle {
+    font-size: var(--font-size-xl);
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  header .container {
+    padding: var(--space-4);
+  }
+  
+  #hero,
   #about,
   #projects,
   #contact {
-    padding: calc(var(--spacing-unit) * 2) 0;
+    padding: var(--space-16) 0;
   }
   
-  /*
-    NEW CODE STARTS HERE: Usability and Tappability Refinements
-  */
-
-  /*
-    Enhance the hamburger menu's tappable area. The icon itself is small,
-    but adding padding increases the clickable zone around it without
-    changing the icon's size. This is a crucial mobile UX improvement.
-  */
-  .menu-toggle {
-    padding: 0.5rem; /* Adds 8px of tappable space on all sides */
+  .container {
+    padding: 0 var(--space-4);
   }
-
-  /*
-    Increase the size of the project buttons to make them more prominent
-    and easier to tap on a touch screen.
-  */
-  .project-links a {
-    padding: 0.75rem 1.25rem; /* Increased from 0.5rem 1rem */
-    font-size: 1rem; /* Ensure font size is consistently readable */
+  
+  #contact form {
+    padding: var(--space-6);
   }
-
-  /*
-    Increase the tappable area and spacing of footer social media links.
-    This prevents users from accidentally tapping the wrong link.
-  */
-s  footer ul {
-    gap: calc(var(--spacing-unit) * 1.5); /* Increase the space between links */
-  }
-
-  footer ul li a {
-    padding: 0.4rem; /* Add padding to create a larger tap target */
+  
+  footer .container {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
   }
 }
 
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+
+.hidden { display: none; }
+.visible { display: block; }
+
+/* Loading Animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.loading {
+  animation: pulse 2s infinite;
+}

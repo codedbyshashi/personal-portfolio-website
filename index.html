@@ -1,316 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Metadata for the browser -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Title for the browser tab and search engines -->
-    <title><!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- ... all your head content remains the same ... -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Web Developer</title>
+    <title>Kota Shashidharreddy - Java Full Stack Developer</title>
+    <meta name="description" content="Professional portfolio of Kota Shashidharreddy - Java Full Stack Developer & UI/UX Enthusiast">
+    
+    <!-- Preconnect to Google Fonts for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Scripts -->
     <script src="js/main.js" defer></script>
 </head>
 <body>
-    <!-- 
-        NEW: The <header> element.
-        This is a semantic landmark element that represents the introductory
-        content for the page. It's the perfect place for our site logo and
-        main navigation.
-    -->
-   <header>
-    <div class="container">
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <!-- 
-            NEW CODE STARTS HERE: The Hamburger Menu Button 
-            This button will be hidden on desktops and shown on smaller screens.
-        -->
-        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-            <!-- These spans will be styled with CSS to create the three "bars" of the icon. -->
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-
-        <!-- 
-            NEW CODE STARTS HERE:
-            This is the HTML structure for our theme switcher.
-        -->
-        <div class="theme-switcher">
-            <!-- 
-                The <label> provides an accessible name for the control and makes the entire
-                visual switch clickable. The 'for' attribute links it to the input's 'id'.
-            -->
-            <label for="theme-toggle" class="switch-label">
-    <input 
-      type="checkbox" 
-      id="theme-toggle" 
-      class="switch-checkbox" 
-      aria-label="Toggle theme between light and dark"
-    >
-    <span class="slider"></span>
-</label>
-
-        </div>
-        <!-- NEW CODE ENDS HERE -->
-
-    </div>
-</header>
-    <!-- 
-        NEW CODE STARTS HERE:
-        This <section> tag creates the main "hero" area of your portfolio.
-        - The <section> element is used because this is a major, thematic part of the page.
-        - The id="hero" gives it a unique identifier. This is crucial for CSS styling
-          and for creating an anchor link so our navigation can scroll to this spot.
-     -->
-    <section id="hero">
-        <!-- The content for the hero section (your name, title, etc.) will go here in the next task. -->
-          <!-- 
-            NEW CODE STARTS HERE:
-            This <div> is a layout container. Its purpose is to hold the hero
-            content and constrain its width on larger screens for better readability.
-            - We use a <div> because its purpose is purely for styling/layout, not semantics.
-            - The class="container" is a reusable style hook. We'll use CSS to target
-              this class to set a max-width and center the content block.
-         -->
+    <!-- Enhanced Header with Professional Navigation -->
+    <header id="header">
         <div class="container">
-            <!-- Your name, title, and introduction will go inside this container. -->
-               <!-- 
-            NEW CONTENT: This is the actual content for our hero section.
-        -->
-        
-        <!-- The <h1> is the most important heading on the page. It should be your name. -->
-        <h1>KOTA SHASHIDHARREDDY</h1>
-
-        <!-- We add a class to this paragraph to style it as a distinct subtitle. -->
-        <p class="hero-subtitle">Java Full Stack Developer & UI/UX Enthusiast</p>
-
-        <!-- A brief, engaging pitch about what you do. -->
-        <p>I design and build beautiful, responsive, and user-friendly websites and applications.</p>
-        </div>
-        <!-- NEW CODE ENDS HERE -->
-    </section>
-     <!-- 
-        NEW CODE STARTS HERE:
-        This is the "About Me" section. It follows the same structure as the hero section
-        by using a <section> for the full-width background and a nested <div class="container">
-        to control the content's width and alignment.
-    -->
-    <section id="about">
-          <div class="container">
-        <h2>About Me</h2>
-        
-        <!-- 
-            NEW: We're adding a wrapper div, 'about-content', to hold our new
-            two-column layout. This lets us apply Flexbox to this container
-            without affecting the H2 heading above.
-        -->
-        <div class="about-content">
-            <!-- First column: The Image -->
-            <div class="about-image">
-                <!-- 
-                    NEW: The <img> tag for your profile picture.
-                    - The 'src' attribute points to the image file using a relative path.
-                    - The 'alt' attribute is CRUCIAL for accessibility. It describes
-                      the image for screen readers and if the image fails to load.
-                      Always make it descriptive!
-                -->
-                <img 
-  src="c:\Users\kotak\OneDrive\Pictures\certificates\generation-1d461ee3-07a6-4df4-889b-9e3c23a3b287.png" 
-  class="about-me-image" 
-  alt="A professional headshot of [KOTA SHASHIDHARREDDY] smiling, with a neutral background."
->
-            </div>
+            <a href="#hero" class="logo">Shashi</a>
             
-            <!-- Second column: The Text Content -->
-            <div class="about-text">
-                <!-- Your existing paragraphs are now nested inside this div -->
-                <p>
-                   Hey! I'm Shashi, a BTech 3rd year student and a passionate full stack developer. I love building web applications that are both functional and clean. My main stack includes Java, Spring Boot, HTML, CSS, and JavaScript. I'm currently working on personal projects like a blog platform and a heart disease prediction tool to sharpen my skills. I'm also focused on improving my DSA and core computer science knowledge to prepare for product-based company placements in 2027. Outside of coding, I enjoy exploring new tech and constantly learning something new.
+            <nav>
+                <ul>
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="theme-switcher">
+                    <label for="theme-toggle" class="switch-label" aria-label="Toggle dark mode">
+                        <input 
+                            type="checkbox" 
+                            id="theme-toggle" 
+                            class="switch-checkbox"
+                            aria-label="Toggle theme between light and dark"
+                        >
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Enhanced Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-greeting">Hello, I'm</div>
+            <h1>Kota Shashidharreddy</h1>
+            <p class="hero-subtitle">Java Full Stack Developer & UI/UX Enthusiast</p>
+            <p class="hero-description">
+                I craft exceptional digital experiences through clean code and thoughtful design. 
+                Passionate about building scalable web applications that make a difference.
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    Passionate developer with a keen eye for detail and a love for creating meaningful digital experiences.
                 </p>
             </div>
-        </div>
-    </div>
-    </section> <!-- 
-        NEW CODE STARTS HERE:
-        This is the "Projects" section, where you will showcase your work.
-    -->
-    <section id="projects">
-        <!-- 
-            We reuse the same <div class="container"> pattern to ensure that the
-            content in this section has the same width and centering as the sections
-            above it. This creates a consistent and professional layout.
-        -->
-        <div class="container">
-            <!-- 
-                The <h2> heading maintains the document's semantic structure.
-                "Projects" is another main section of the portfolio.
-            -->
-            <h2>My Projects</h2>
             
-            <!-- A dedicated container for the project cards will be added here next. -->
-              <!-- 
-                NEW CODE STARTS HERE:
-                This new <div> is a dedicated container specifically for our project cards.
-                - It's a non-semantic <div> because its purpose is purely for layout.
-                - The class "projects-container" provides a specific CSS hook. We will later
-                  target this class to apply a CSS Grid or Flexbox layout, arranging
-                  the project cards neatly into rows and columns.
-                - This element will be populated dynamically with JavaScript later on.
-            -->
-            <div class="projects-container">
-                <!-- Individual project cards will be added here -->
-                  <!-- 
-        NEW: This is a temporary sample project card. 
-        We'll use it to develop our CSS styles.
-    -->
-     <div class="project-card">
-        <img src="images/project-placeholder-1.jpg" alt="A screenshot or mockup of Project One" class="project-image">
-        <div class="project-info">
-            <h3>Simple Blog Platform with Comments</h3>
-            <p>Develop a basic blogging platform where an administrator can create, edit, and delete posts. Visitors can view a list of all posts and read individual posts. Registered users can log in to add comments to posts, which will be visible to everyone.</p>
-        </div>
-        <div class="project-links">
-            <a href="#" target="_blank">Live Demo</a>
-            <a href="#" target="_blank">View Code</a>
-        </div>
-    </div>
-    
-    <!-- Card 2 (A copy of the first one) -->
-    <div class="project-card">
-        <img src="images/project-placeholder-1.jpg" alt="A screenshot or mockup of Project Two" class="project-image">
-        <div class="project-info">
-            <h3>URL Shortener Service</h3>
-            <p>Build a web application similar to Bitly or TinyURL. Users can submit a long URL and receive a unique, shortened URL. When the short URL is accessed, the service should redirect the user to the original long URL. The application should also track the number of clicks for each shortened link.</p>
-        </div>
-        <div class="project-links">
-            <a href="#" target="_blank">Live Demo</a>
-            <a href="#" target="_blank">View Code</a>
-        </div>
-    </div>
-
-    <!-- Card 3 (Another copy) -->
-    <div class="project-card">
-        <img src="images/project-placeholder-1.jpg" alt="A screenshot or mockup of Project Three" class="project-image">
-        <div class="project-info">
-            <h3>Sentiment Analysis of Text Reviews</h3>
-            <p>Build a model to classify text reviews (e.g., from movies or products) as positive or negative. This is a foundational project in Natural Language Processing (NLP) that serves as an excellent introduction to text data.</p>
-        </div>
-        <div class="project-links">
-            <a href="#" target="_blank">Live Demo</a>
-            <a href="#" target="_blank">View Code</a>
-        </div>
-    </div>
+            <div class="about-content">
+                <div class="about-image slide-in-left">
+                    <img 
+                        src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                        alt="Professional headshot of Kota Shashidharreddy"
+                    >
+                </div>
+                
+                <div class="about-text slide-in-right">
+                    <p>
+                        Hey! I'm Shashi, a BTech 3rd year student and passionate full stack developer. 
+                        I specialize in building robust web applications that combine functionality with 
+                        exceptional user experience.
+                    </p>
+                    <p>
+                        My expertise spans across Java, Spring Boot, HTML, CSS, and JavaScript. I'm currently 
+                        working on innovative projects including a blog platform and a heart disease prediction 
+                        tool, constantly pushing the boundaries of what's possible with modern web technologies.
+                    </p>
+                    <p>
+                        When I'm not coding, I'm focused on strengthening my DSA skills and expanding my 
+                        computer science knowledge, preparing for exciting opportunities in product-based 
+                        companies by 2027.
+                    </p>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">☕</div>
+                            <div class="skill-name">Java</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">🍃</div>
+                            <div class="skill-name">Spring Boot</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">⚛️</div>
+                            <div class="skill-name">React</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">🎨</div>
+                            <div class="skill-name">UI/UX</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">🗄️</div>
+                            <div class="skill-name">MySQL</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">🚀</div>
+                            <div class="skill-name">Node.js</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- NEW CODE ENDS HERE -->
         </div>
     </section>
-    <!-- NEW CODE ENDS HERE -->
-    <!-- NEW CODE ENDS HERE -->
-      <!-- 
-        NEW CODE STARTS HERE:
-        This is the "Contact" section. It follows the same structural pattern
-        for consistency.
-    -->
+
+    <!-- Enhanced Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    A showcase of my recent work, demonstrating my skills in full-stack development and modern web technologies.
+                </p>
+            </div>
+            
+            <div class="projects-container" id="projects-container">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact Section -->
     <section id="contact">
         <div class="container">
-            <h2>Contact Me</h2>
-            <p>I'm always open to discussing new projects or opportunities. Feel free to reach out!</p>
+            <div class="section-header fade-in">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">
+                    Ready to bring your ideas to life? I'm always excited to discuss new projects and opportunities.
+                </p>
+            </div>
             
-            <!-- 
-                The <form> element is a semantic container for all user input fields.
-                The 'action' and 'method' attributes will be configured later to make it functional.
-            -->
-            <!-- Inside your index.html file -->
-<form 
-    id="contact-form" 
-    action="https://formspree.io/f/xovlpjpv"
-    method="POST"
->
-    <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-    </div>
-    <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-    </div>
-    <div>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-    </div>
+            <form 
+                id="contact-form" 
+                action="https://formspree.io/f/xovlpjpv"
+                method="POST"
+                class="fade-in"
+            >
+                <div id="form-status"></div>
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Enter your full name" 
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Enter your email address" 
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input 
+                        type="text" 
+                        id="subject" 
+                        name="subject" 
+                        placeholder="What's this about?" 
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        placeholder="Tell me about your project or inquiry..." 
+                        required
+                    ></textarea>
+                </div>
 
-    <!-- NEW CODE STARTS HERE -->
-    <!-- 
-      This container will be used by JavaScript to display success or error messages
-      to the user after a form submission attempt. It is hidden by default with CSS.
-    -->
-    <div id="form-status"></div>
-    <!-- NEW CODE ENDS HERE -->
-
-    <button type="submit" class="btn">Send Message</button>
-</form>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    Send Message
+                </button>
+            </form>
         </div>
     </section>
-    <!-- NEW CODE ENDS HERE -->
-      <!-- 
-        NEW CODE STARTS HERE:
-        The <footer> is the final landmark element on our page.
-    -->
+
+    <!-- Enhanced Footer -->
     <footer>
-        <!-- We re-use the .container class one last time for layout consistency. -->
         <div class="container">
-            <!-- 
-                A paragraph for the copyright notice.
-                &copy; is the HTML entity for the © symbol.
-            -->
-            <p>&copy; 2024 Your Name. All Rights Reserved.</p>
-            
-            <!-- A list of social media links, structured similarly to our main navigation. -->
+            <p>&copy; 2024 Kota Shashidharreddy. All rights reserved.</p>
             <ul>
-                <!-- 
-                    The target="_blank" attribute tells the browser to open these links in a new tab.
-                    This is a best practice for external links, as it keeps users on your site.
-                    Remember to replace the '#' with your actual profile URLs.
-                -->
-                <li><a href="https://github.com/codedbyshashi" target="_blank">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/shashidhar-reddy-730176344/" target="_blank">LinkedIn</a></li>
-                
+                <li><a href="https://github.com/codedbyshashi" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/shashidhar-reddy-730176344/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="mailto:your.email@example.com">Email</a></li>
             </ul>
         </div>
     </footer>
-
-</body>
-</html></title>
-
-    <!-- 
-        NEW: Link to your external CSS file.
-        This tells the browser where to find the styling rules for the page.
-        It's placed in the <head> to prevent a Flash of Unstyled Content (FOUC).
-    -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- 
-        NEW: Link to your external JavaScript file.
-        The 'defer' attribute tells the browser to download the script alongside
-        the HTML, but wait to execute it until the HTML is fully parsed.
-        This is the modern best practice for performance and reliability.
-    -->
-    <script src="js/main.js" defer></script>
-</head>
-<body>
-    <!-- All visible page content will go here. -->
 </body>
 </html>
