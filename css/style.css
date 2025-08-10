@@ -522,6 +522,13 @@ header nav ul li a.active {
   background: var(--background-gradient);
 }
 
+/* Ensure all sections are visible */
+section {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
 #hero::before {
   content: '';
   position: absolute;

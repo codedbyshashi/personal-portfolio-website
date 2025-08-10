@@ -295,7 +295,7 @@ class AnimationManager {
             rootMargin: '0px 0px -50px 0px'
         };
 
-        window.animationObserver = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -315,7 +315,7 @@ class AnimationManager {
 
         // Observe elements with animation classes
         document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .project-card').forEach(el => {
-            window.animationObserver.observe(el);
+            observer.observe(el);
         });
     }
 }
@@ -400,10 +400,6 @@ class ProjectManager {
             newCards.forEach(card => window.animationObserver.observe(card));
         }
     }
-}
-        this.renderProjects();
-    }
-
 }
 
 // =======================================
