@@ -4,6 +4,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Portfolio loaded successfully');
     
+    // Create floating particles
+    createFloatingParticles();
+    
+    // Initialize scroll animations
+    initScrollAnimations();
+    
     // Initialize smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
     navLinks.forEach(link => {
@@ -167,4 +173,105 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    
+    // Create floating particles function
+    function createFloatingParticles() {
+        const particlesContainer = document.createElement('div');
+        particlesContainer.className = 'floating-particles';
+        particlesContainer.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        `;
+        
+        // Create 20 particles
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            const colors = [
+                'rgba(37, 99, 235, 0.6)',
+                'rgba(6, 182, 212, 0.6)',
+                'rgba(16, 185, 129, 0.6)',
+                'rgba(245, 158, 11, 0.6)',
+                'rgba(139, 92, 246, 0.6)'
+            ];
+            
+            const size = Math.random() * 4 + 2;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const left = Math.random() * 100;
+            const animationDuration = Math.random() * 10 + 15;
+            const delay = Math.random() * 5;
+            
+            particle.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                background: ${color};
+                border-radius: 50%;
+                left: ${left}%;
+                bottom: -10px;
+                animation: floatUp ${animationDuration}s linear infinite;
+                animation-delay: ${delay}s;
+                box-shadow: 0 0 10px ${color};
+            `;
+            
+            particlesContainer.appendChild(particle);
+        }
+        
+        document.body.appendChild(particlesContainer);
+        
+        // Add CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(100vh) rotate(0deg);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Initialize scroll animations
+    function initScrollAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Observe fade-in elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+    }
 });
