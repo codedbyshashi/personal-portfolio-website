@@ -18,7 +18,19 @@
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Scripts -->
-    <script src="js/main.js" defer></script>
+    <script>
+        // Ensure projects load immediately
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, checking for projects container...');
+            const container = document.getElementById('projects-container');
+            if (container) {
+                console.log('Projects container found');
+            } else {
+                console.error('Projects container not found');
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
 </head>
 <body>
     <!-- Floating Particles Background Effect -->

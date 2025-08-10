@@ -66,7 +66,7 @@ class BackgroundEffects {
 // =======================================
 // PROJECT DATA - Enhanced
 // =======================================
-const projects = [
+const projectsData = [
     {
         title: "Professional Portfolio Website",
         description: "A modern, responsive portfolio built with vanilla JavaScript, featuring advanced CSS animations, dark mode toggle, and optimized performance. Showcases clean code architecture and professional design principles.",
@@ -295,7 +295,7 @@ class AnimationManager {
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        window.animationObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -315,7 +315,7 @@ class AnimationManager {
 
         // Observe elements with animation classes
         document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .project-card').forEach(el => {
-            observer.observe(el);
+            window.animationObserver.observe(el);
         });
     }
 }
@@ -325,17 +325,32 @@ class AnimationManager {
 // =======================================
 class ProjectManager {
     constructor() {
+        this.projects = projectsData;
         this.init();
     }
 
     init() {
-        this.renderProjects();
+        // Ensure DOM is ready before rendering
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.renderProjects());
+        } else {
+            this.renderProjects();
+        }
     }
 
     renderProjects() {
-        if (!projectsContainer) return;
+        console.log('Rendering projects...'); // Debug log
+        if (!projectsContainer) {
+            console.error('Projects container not found');
+            return;
+        }
 
-        const projectsHTML = projects.map((project, index) => `
+        if (!this.projects || this.projects.length === 0) {
+            console.error('No projects data found');
+            return;
+        }
+
+        const projectsHTML = this.projects.map((project, index) => `
             <div class="project-card fade-in" style="animation-delay: ${index * 0.1}s">
                 <div class="project-image-container">
                     <img 
@@ -377,7 +392,18 @@ class ProjectManager {
         `).join('');
 
         projectsContainer.innerHTML = projectsHTML;
+        console.log('Projects rendered successfully'); // Debug log
+
+        // Re-observe new elements for animations
+        const newCards = projectsContainer.querySelectorAll('.project-card');
+        if (window.animationObserver) {
+            newCards.forEach(card => window.animationObserver.observe(card));
+        }
     }
+}
+        this.renderProjects();
+    }
+
 }
 
 // =======================================
