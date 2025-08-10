@@ -180,6 +180,91 @@ body::after {
   animation: backgroundShift 25s ease-in-out infinite reverse;
 }
 
+/* Enhanced Visual Effects */
+body {
+  position: relative;
+}
+
+body::before {
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 60% 60%, rgba(245, 158, 11, 0.02) 0%, transparent 50%);
+}
+
+/* Animated Geometric Shapes */
+.geometric-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.1;
+  animation: floatShape 20s infinite linear;
+}
+
+.shape-circle {
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  top: 80%;
+  left: 10%;
+  animation-duration: 25s;
+}
+
+.shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid var(--accent-color);
+  top: 70%;
+  right: 15%;
+  animation-duration: 30s;
+  animation-delay: -5s;
+}
+
+.shape-square {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--success-color);
+  top: 60%;
+  left: 80%;
+  animation-duration: 22s;
+  animation-delay: -10s;
+  transform: rotate(45deg);
+}
+
+@keyframes floatShape {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.05;
+    transform: translateY(50vh) rotate(180deg);
+  }
+  90% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
 @keyframes backgroundFloat {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
@@ -213,25 +298,41 @@ body::after {
   height: 100%;
   pointer-events: none;
   z-index: -1;
+  overflow: hidden;
 }
 
 .particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
   background: rgba(37, 99, 235, 0.1);
   border-radius: 50%;
   animation: float 15s infinite linear;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
 }
 
 .particle:nth-child(2n) {
   background: rgba(6, 182, 212, 0.1);
   animation-duration: 20s;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
 }
 
 .particle:nth-child(3n) {
   background: rgba(16, 185, 129, 0.1);
   animation-duration: 25s;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.particle:nth-child(4n) {
+  background: rgba(245, 158, 11, 0.1);
+  animation-duration: 18s;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+}
+
+.particle:nth-child(5n) {
+  background: rgba(139, 92, 246, 0.1);
+  animation-duration: 22s;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
 }
 
 @keyframes float {
@@ -241,6 +342,10 @@ body::after {
   }
   10% {
     opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(50vh) rotate(180deg) translateX(20px);
   }
   90% {
     opacity: 1;
@@ -688,12 +793,19 @@ header nav ul li a.active {
   border: 1px solid var(--border-color);
   transition: all var(--transition-normal);
   position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .project-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-xl);
   border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+html[data-theme='dark'] .project-card:hover {
+  background: rgba(30, 41, 59, 0.95);
 }
 
 .project-image-container {

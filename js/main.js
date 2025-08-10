@@ -86,6 +86,30 @@ const projects = [
         liveUrl: "#",
         codeUrl: "https://github.com/codedbyshashi/ecommerce-platform",
         technologies: ["React", "Node.js", "PostgreSQL", "Stripe API", "JWT"]
+    },
+    {
+        title: "Task Management Dashboard",
+        description: "A modern project management application with drag-and-drop functionality, real-time collaboration, team management, and progress tracking. Features include Kanban boards, time tracking, file attachments, notifications, and detailed analytics with beautiful data visualizations.",
+        imageUrl: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
+        liveUrl: "#",
+        codeUrl: "https://github.com/codedbyshashi/task-management",
+        technologies: ["React", "TypeScript", "Node.js", "Socket.io", "MongoDB"]
+    },
+    {
+        title: "Weather Forecast App",
+        description: "An intelligent weather application with location-based forecasts, interactive maps, severe weather alerts, and historical data analysis. Features include 7-day forecasts, hourly predictions, weather radar, air quality index, and personalized weather recommendations.",
+        imageUrl: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600",
+        liveUrl: "#",
+        codeUrl: "https://github.com/codedbyshashi/weather-app",
+        technologies: ["JavaScript", "OpenWeather API", "Chart.js", "Geolocation", "PWA"]
+    },
+    {
+        title: "Social Media Analytics Tool",
+        description: "A comprehensive social media analytics platform that tracks engagement metrics, audience insights, content performance, and competitor analysis. Features automated reporting, sentiment analysis, hashtag tracking, and AI-powered content suggestions for optimal posting times.",
+        imageUrl: "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=600",
+        liveUrl: "#",
+        codeUrl: "https://github.com/codedbyshashi/social-analytics",
+        technologies: ["Python", "Django", "React", "D3.js", "Twitter API", "Instagram API"]
     }
 ];
 
