@@ -102,19 +102,22 @@ document.addEventListener('DOMContentLoaded', function() {
             projectCard.className = 'project-card';
             
             projectCard.innerHTML = `
-                <div class="project-image">
-                    <img src="${project.image}" alt="${project.title}" loading="lazy">
+                <div class="project-image-container">
+                    <img src="${project.image}" alt="${project.title}" class="project-image" loading="lazy">
                     <div class="project-overlay">
+                        <div class="project-tech">
+                            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                        </div>
                         <div class="project-links">
-                            <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                            <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a href="${project.liveUrl}" class="btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                            <a href="${project.githubUrl}" class="btn" target="_blank" rel="noopener noreferrer">GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-content">
+                <div class="project-info">
                     <h3>${project.title}</h3>
                     <p>${project.description}</p>
-                    <div class="project-technologies">
+                    <div class="project-tech">
                         ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                     </div>
                 </div>

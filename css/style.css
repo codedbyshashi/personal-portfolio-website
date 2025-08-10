@@ -183,100 +183,118 @@ body::after {
 /* Enhanced Visual Effects */
 body {
   position: relative;
+  overflow-x: hidden;
 }
 
 body::before {
   background: 
-    radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 60% 60%, rgba(245, 158, 11, 0.02) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.06) 0%, transparent 60%),
+    radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.04) 0%, transparent 60%),
+    radial-gradient(circle at 60% 60%, rgba(245, 158, 11, 0.03) 0%, transparent 60%);
+  animation: backgroundFloat 30s ease-in-out infinite;
 }
 
-/* Animated Geometric Shapes */
-.geometric-shapes {
+/* Professional Live Background Effects */
+.live-background-effects {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: -1;
+  z-index: -2;
   overflow: hidden;
 }
 
-.shape {
+.floating-orb {
   position: absolute;
-  opacity: 0.1;
-  animation: floatShape 20s infinite linear;
-}
-
-.shape-circle {
-  width: 60px;
-  height: 60px;
-  border: 2px solid var(--primary-color);
   border-radius: 50%;
-  top: 80%;
+  filter: blur(40px);
+  animation: floatOrb 25s infinite ease-in-out;
+}
+
+.orb-1 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+  top: 10%;
   left: 10%;
-  animation-duration: 25s;
+  animation-delay: 0s;
 }
 
-.shape-triangle {
-  width: 0;
-  height: 0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-bottom: 50px solid var(--accent-color);
-  top: 70%;
-  right: 15%;
-  animation-duration: 30s;
-  animation-delay: -5s;
-}
-
-.shape-square {
-  width: 40px;
-  height: 40px;
-  border: 2px solid var(--success-color);
+.orb-2 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
   top: 60%;
-  left: 80%;
-  animation-duration: 22s;
-  animation-delay: -10s;
-  transform: rotate(45deg);
+  right: 20%;
+  animation-delay: -8s;
+  animation-duration: 35s;
 }
 
-@keyframes floatShape {
+.orb-3 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  bottom: 20%;
+  left: 60%;
+  animation-delay: -15s;
+  animation-duration: 40s;
+}
+
+.mesh-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    conic-gradient(from 0deg at 50% 50%, 
+      rgba(37, 99, 235, 0.03) 0deg,
+      rgba(6, 182, 212, 0.02) 90deg,
+      rgba(16, 185, 129, 0.02) 180deg,
+      rgba(245, 158, 11, 0.01) 270deg,
+      rgba(37, 99, 235, 0.03) 360deg);
+  animation: rotateMesh 60s linear infinite;
+}
+
+@keyframes floatOrb {
   0% {
-    transform: translateY(100vh) rotate(0deg);
-    opacity: 0;
+    transform: translate(0, 0) scale(1);
   }
-  10% {
-    opacity: 0.1;
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
   }
-  50% {
-    opacity: 0.05;
-    transform: translateY(50vh) rotate(180deg);
-  }
-  90% {
-    opacity: 0.1;
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
   }
   100% {
-    transform: translateY(-100px) rotate(360deg);
-    opacity: 0;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes rotateMesh {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
 @keyframes backgroundFloat {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px) translateX(0px);
     opacity: 1;
   }
   33% {
-    transform: translateY(-20px) rotate(1deg);
-    opacity: 0.8;
+    transform: translateY(-15px) translateX(10px);
+    opacity: 0.9;
   }
   66% {
-    transform: translateY(10px) rotate(-1deg);
-    opacity: 0.9;
+    transform: translateY(10px) translateX(-5px);
+    opacity: 0.95;
   }
 }
 
@@ -649,9 +667,12 @@ section {
    ABOUT SECTION - ENHANCED
    ======================================== */
 #about {
+  display: block !important;
+  visibility: visible !important;
   padding: var(--space-24) 0;
   background: var(--surface-color);
   position: relative;
+  z-index: 10;
 }
 
 #about .container {
@@ -776,8 +797,26 @@ section {
    PROJECTS SECTION - ENHANCED
    ======================================== */
 #projects {
+  display: block !important;
+  visibility: visible !important;
   padding: var(--space-24) 0;
   background: var(--background-gradient);
+  position: relative;
+  z-index: 10;
+}
+
+#projects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 #projects .container {
@@ -794,25 +833,51 @@ section {
 
 .project-card {
   background: var(--surface-color);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius-xl);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-color);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all var(--transition-normal);
   position: relative;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  transform: translateY(0);
+}
+
+html[data-theme='dark'] .project-card {
+  background: rgba(30, 41, 59, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 10px 20px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(37, 99, 235, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
   border-color: var(--primary-color);
-  background: rgba(255, 255, 255, 0.95);
 }
 
-html[data-theme='dark'] .project-card:hover {
-  background: rgba(30, 41, 59, 0.95);
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.02) 0%, rgba(6, 182, 212, 0.02) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.project-card:hover::before {
+  opacity: 1;
 }
 
 .project-image-container {
@@ -825,11 +890,13 @@ html[data-theme='dark'] .project-card:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: all var(--transition-slow);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.9) contrast(1.1);
 }
 
 .project-card:hover .project-image {
-  transform: scale(1.1);
+  transform: scale(1.08);
+  filter: brightness(1) contrast(1.2);
 }
 
 .project-overlay {
@@ -838,11 +905,15 @@ html[data-theme='dark'] .project-card:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(6, 182, 212, 0.8));
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(6, 182, 212, 0.85));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   opacity: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: var(--space-4);
   transition: all var(--transition-normal);
 }
 
@@ -850,23 +921,51 @@ html[data-theme='dark'] .project-card:hover {
   opacity: 1;
 }
 
-.project-tech {
+.project-overlay .project-tech {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
   justify-content: center;
+  margin-bottom: var(--space-4);
 }
 
-.tech-tag {
+.project-overlay .tech-tag {
   background: rgba(255, 255, 255, 0.9);
   color: var(--primary-color);
   padding: var(--space-1) var(--space-3);
   border-radius: var(--border-radius);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-overlay .project-links {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.project-overlay .project-links .btn {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary-color);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--border-radius-lg);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-overlay .project-links .btn:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .project-info {
@@ -878,6 +977,10 @@ html[data-theme='dark'] .project-card:hover {
   font-weight: var(--font-weight-bold);
   color: var(--text-primary);
   margin-bottom: var(--space-3);
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .project-info p {
@@ -886,25 +989,39 @@ html[data-theme='dark'] .project-card:hover {
   margin-bottom: var(--space-6);
 }
 
-.project-links {
+.project-info .project-tech {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-3);
+  margin-top: var(--space-4);
 }
 
-.project-links .btn {
-  flex: 1;
-  justify-content: center;
-  padding: var(--space-3) var(--space-4);
+.project-info .tech-tag {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-color);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--border-radius);
   font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  transition: all var(--transition-fast);
+}
+
+.project-info .tech-tag:hover {
+  background: rgba(37, 99, 235, 0.15);
+  transform: translateY(-1px);
 }
 
 /* ========================================
    CONTACT SECTION - ENHANCED
    ======================================== */
 #contact {
+  display: block !important;
+  visibility: visible !important;
   padding: var(--space-24) 0;
   background: var(--surface-color);
   position: relative;
+  z-index: 10;
 }
 
 #contact::before {
