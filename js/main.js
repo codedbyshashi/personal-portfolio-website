@@ -13,13 +13,14 @@ class BackgroundEffects {
 
     init() {
         this.createFloatingParticles();
+        this.createGeometricShapes();
     }
 
     createFloatingParticles() {
         const particlesContainer = document.getElementById('particles');
         if (!particlesContainer) return;
 
-        const particleCount = 15;
+        const particleCount = 25;
         
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');
@@ -32,6 +33,33 @@ class BackgroundEffects {
             
             particlesContainer.appendChild(particle);
         }
+    }
+
+    createGeometricShapes() {
+        const shapesContainer = document.createElement('div');
+        shapesContainer.className = 'geometric-shapes';
+        document.body.appendChild(shapesContainer);
+
+        // Create different geometric shapes
+        const shapes = [
+            { class: 'shape shape-circle', count: 3 },
+            { class: 'shape shape-triangle', count: 2 },
+            { class: 'shape shape-square', count: 3 }
+        ];
+
+        shapes.forEach(shapeType => {
+            for (let i = 0; i < shapeType.count; i++) {
+                const shape = document.createElement('div');
+                shape.className = shapeType.class;
+                
+                // Random positioning and timing
+                shape.style.left = Math.random() * 100 + '%';
+                shape.style.animationDelay = Math.random() * 20 + 's';
+                shape.style.animationDuration = (20 + Math.random() * 15) + 's';
+                
+                shapesContainer.appendChild(shape);
+            }
+        });
     }
 }
 
