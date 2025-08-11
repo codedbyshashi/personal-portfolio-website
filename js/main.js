@@ -138,6 +138,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize projects
     renderProjects();
 
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    
+    // Update toggle state based on current theme
+    if (savedTheme === 'dark') {
+        themeToggle.checked = true;
+    }
+    
+    // Theme toggle event listener
+    if (themeToggle) {
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+
     // Contact form handling
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
