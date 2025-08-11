@@ -348,6 +348,180 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    function initParticleSystem() {
+        createParticleContainer();
+        createFloatingParticles();
+        createGeometricParticles();
+        createBubbleParticles();
+        createConstellationEffect();
+        createSpiralParticles();
+        initInteractiveParticles();
+    }
+    
+    function createParticleContainer() {
+        const container = document.createElement('div');
+        container.className = 'particle-container';
+        document.body.appendChild(container);
+        return container;
+    }
+    
+    function createFloatingParticles() {
+        const container = document.querySelector('.particle-container');
+        const particleCount = 30;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            const sizes = ['small', 'medium', 'large'];
+            const size = sizes[Math.floor(Math.random() * sizes.length)];
+            
+            particle.className = `floating-particle ${size}`;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            
+            container.appendChild(particle);
+        }
+    }
+    
+    function createGeometricParticles() {
+        const container = document.querySelector('.particle-container');
+        const shapes = ['triangle', 'square', 'diamond'];
+        const particleCount = 15;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            const shape = shapes[Math.floor(Math.random() * shapes.length)];
+            
+            particle.className = `geometric-particle ${shape}`;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 25 + 's';
+            particle.style.animationDuration = (Math.random() * 15 + 20) + 's';
+            
+            container.appendChild(particle);
+        }
+    }
+    
+    function createBubbleParticles() {
+        const container = document.querySelector('.particle-container');
+        const sizes = ['small', 'medium', 'large'];
+        const particleCount = 12;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const bubble = document.createElement('div');
+            const size = sizes[Math.floor(Math.random() * sizes.length)];
+            
+            bubble.className = `bubble-particle ${size}`;
+            bubble.style.left = Math.random() * 100 + '%';
+            bubble.style.animationDelay = Math.random() * 15 + 's';
+            bubble.style.animationDuration = (Math.random() * 8 + 12) + 's';
+            
+            container.appendChild(bubble);
+        }
+    }
+    
+    function createConstellationEffect() {
+        const container = document.querySelector('.particle-container');
+        const starCount = 20;
+        const stars = [];
+        
+        // Create constellation stars
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'constellation-particle';
+            
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            
+            star.style.left = x + 'px';
+            star.style.top = y + 'px';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            
+            container.appendChild(star);
+            stars.push({ element: star, x, y });
+        }
+        
+        // Create connecting lines between nearby stars
+        for (let i = 0; i < stars.length; i++) {
+            for (let j = i + 1; j < stars.length; j++) {
+                const distance = Math.sqrt(
+                    Math.pow(stars[i].x - stars[j].x, 2) + 
+                    Math.pow(stars[i].y - stars[j].y, 2)
+                );
+                
+                if (distance < 150) {
+                    const line = document.createElement('div');
+                    line.className = 'constellation-line';
+                    
+                    const angle = Math.atan2(stars[j].y - stars[i].y, stars[j].x - stars[i].x);
+                    
+                    line.style.left = stars[i].x + 'px';
+                    line.style.top = stars[i].y + 'px';
+                    line.style.width = distance + 'px';
+                    line.style.transform = `rotate(${angle}rad)`;
+                    line.style.animationDelay = Math.random() * 4 + 's';
+                    
+                    container.appendChild(line);
+                }
+            }
+        }
+    }
+    
+    function createSpiralParticles() {
+        const container = document.querySelector('.particle-container');
+        const particleCount = 8;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'spiral-particle pulse-particle';
+            
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            
+            container.appendChild(particle);
+        }
+    }
+    
+    function initInteractiveParticles() {
+        const particles = document.querySelectorAll('.floating-particle, .geometric-particle');
+        
+        window.addEventListener('scroll', () => {
+            const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            
+            particles.forEach((particle, index) => {
+                if (scrollPercent > (index / particles.length) - 0.1 && 
+                    scrollPercent < (index / particles.length) + 0.1) {
+                    particle.classList.add('interactive-particle', 'active');
+                } else {
+                    particle.classList.remove('active');
+                }
+            });
+        });
+        
+        // Mouse interaction
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            particles.forEach((particle, index) => {
+                const rect = particle.getBoundingClientRect();
+                const particleX = (rect.left + rect.width / 2) / window.innerWidth;
+                const particleY = (rect.top + rect.height / 2) / window.innerHeight;
+                
+                const distance = Math.sqrt(
+                    Math.pow(mouseX - particleX, 2) + 
+                    Math.pow(mouseY - particleY, 2)
+                );
+                
+                if (distance < 0.1) {
+                    particle.style.transform += ` scale(1.2)`;
+                    particle.style.opacity = '1';
+                }
+            });
+        });
+    }
+    
     // Initialize scroll animations
     function initScrollAnimations() {
         const observerOptions = {
