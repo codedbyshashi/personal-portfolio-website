@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize particle system
     initParticleSystem();
     
+    // Initialize live background effects
+    initLiveBackgroundEffects();
+    
     // Initialize scroll animations
     initScrollAnimations();
     
@@ -137,6 +140,98 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize projects
     renderProjects();
+    
+    // Initialize live background visuals
+    function initLiveBackgroundEffects() {
+        // Create floating particles
+        createFloatingParticles();
+        
+        // Create wave animation
+        createWaveAnimation();
+        
+        // Create dots grid
+        createDotsGrid();
+        
+        // Create morphing blobs
+        createMorphingBlobs();
+        
+        // Add scroll-based effects
+        addScrollEffects();
+    }
+    
+    function createFloatingParticles() {
+        const particlesContainer = document.createElement('div');
+        particlesContainer.className = 'floating-particles';
+        document.body.appendChild(particlesContainer);
+        
+        // Create 50 floating particles
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random positioning
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            
+            // Random size
+            const size = Math.random() * 8 + 4;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            
+            particlesContainer.appendChild(particle);
+        }
+    }
+    
+    function createWaveAnimation() {
+        const waveContainer = document.createElement('div');
+        waveContainer.className = 'wave-animation';
+        document.body.appendChild(waveContainer);
+    }
+    
+    function createDotsGrid() {
+        const dotsGrid = document.createElement('div');
+        dotsGrid.className = 'dots-grid';
+        document.body.appendChild(dotsGrid);
+    }
+    
+    function createMorphingBlobs() {
+        const blob1 = document.createElement('div');
+        blob1.className = 'morphing-blob blob-1';
+        document.body.appendChild(blob1);
+        
+        const blob2 = document.createElement('div');
+        blob2.className = 'morphing-blob blob-2';
+        document.body.appendChild(blob2);
+    }
+    
+    function addScrollEffects() {
+        let scrollY = 0;
+        
+        window.addEventListener('scroll', () => {
+            scrollY = window.scrollY;
+            
+            // Parallax effect for background elements
+            const orbs = document.querySelectorAll('.floating-orb');
+            orbs.forEach((orb, index) => {
+                const speed = 0.5 + (index * 0.2);
+                orb.style.transform = `translateY(${scrollY * speed}px)`;
+            });
+            
+            // Rotate mesh gradient based on scroll
+            const meshGradient = document.querySelector('.mesh-gradient');
+            if (meshGradient) {
+                meshGradient.style.transform = `rotate(${scrollY * 0.1}deg)`;
+            }
+            
+            // Move floating particles
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                const speed = 0.3 + (index % 3) * 0.1;
+                particle.style.transform = `translateX(${Math.sin(scrollY * 0.01 + index) * 20}px)`;
+            });
+        });
+    }
 
     // Theme toggle functionality
     const themeToggle = document.getElementById('theme-toggle');
